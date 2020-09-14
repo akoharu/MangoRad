@@ -14,7 +14,12 @@ fi
 RADIUS_VERSION='3.0'
 
 # Install FreeRadius
- sudo apt-get install -y freeradius freeradius-utils freeradius-mysql
+sudo apt-get install software-properties-common python-software-properties
+sudo add-apt-repository ppa:freeradius/stable-3.0
+#Answer yes to include the PPA with it's keys
+#Update all the reposiories
+sudo apt-get update
+sudo apt-get install -y freeradius freeradius-utils freeradius-mysql
 
 cd /etc/freeradius/$RADIUS_VERSION/mods-enabled
 sudo ln -s ../mods-available/sql sql
